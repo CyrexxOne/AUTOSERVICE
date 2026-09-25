@@ -1,5 +1,4 @@
 # Deploys the static site to GitHub Pages.
-# One-time setup in the repository: Settings → Pages → Build and deployment → Source: "GitHub Actions".
 name: Deploy to GitHub Pages
 on:
   push:
@@ -21,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true   # creates the Pages site on the first run, no manual setup needed
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
