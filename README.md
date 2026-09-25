@@ -2,12 +2,13 @@
 
 Landing page (alpha) for **Autoservice Oleh**, Kärntner Straße 105, 8053 Graz.
 
-- `index.html` – single-page site, no build step. Open it in a browser or serve the folder statically.
+- `index.html` – single-page site (German), no build step. Open it in a browser or serve the folder statically.
+- `uk.html` – the same page in Ukrainian; the header has a DE/UA switch. It uses self-hosted Montserrat (Poppins has no Cyrillic). The legal pages stay German.
 - `impressum.html`, `datenschutz.html` – **drafts** of the Impressum and the Datenschutzerklärung (same look as the landing page, `noindex`, visible draft notice). Every missing fact is marked with a yellow „[bitte ergänzen: …]“ / „[bitte bestätigen: …]“ placeholder.
 - `assets/logo/` – vector logo (SVG) in stacked and horizontal lockups, each in on-blue, on-light, mono-white and mono-blue, plus transparent PNG exports (600/1200 px).
 - `assets/og-image.jpg` – 1200 × 630 link-preview image (Open Graph) for WhatsApp, Telegram, Facebook: stacked on-blue logo on `#042871`, address and phone in Poppins.
 - `favicon.*`, `apple-touch-icon.png`, `icon-*.png`, `site.webmanifest` – browser and app icons.
-- `assets/fonts/` – self-hosted Poppins (OFL) used for all text on the site. No request goes to Google Fonts.
+- `assets/fonts/` – self-hosted Poppins (German page) and Montserrat with Cyrillic (Ukrainian page), both OFL. No request goes to Google Fonts.
 - `assets/img/` – photos from the company Instagram @oleh_auto_graz. The page serves the WebP versions (`*-600.webp` and `motorraum-mpi.webp` for the gallery and „Über uns“, `werkstatt-hebebuehne-900.webp` for the hero) through `<picture>`; the `.jpg` files are the fallback for old browsers.
 
 Privacy: the page sets no cookies and loads no tracking. Google Maps is a two-click embed: the iframe is only inserted after the visitor clicks „Karte laden“ (with `referrerpolicy="no-referrer"`); the „Route in Google Maps“ links are plain links.
