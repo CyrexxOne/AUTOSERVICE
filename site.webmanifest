@@ -1,6 +1,12 @@
 {
   "name": "Autoservice Oleh",
   "short_name": "Autoservice Oleh",
+  "lang": "de-AT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#012266",
+  "background_color": "#042871",
   "icons": [
     {
       "src": "icon-192.png",
@@ -26,9 +32,5 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "theme_color": "#042871",
-  "background_color": "#042871",
-  "display": "standalone",
-  "start_url": "/"
+  ]
 }

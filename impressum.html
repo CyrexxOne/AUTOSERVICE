@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ENTWURF: noindex bleibt, bis alle Platzhalter ergänzt und die Seite rechtlich geprüft ist. -->
+<meta name="robots" content="noindex">
+<title>Impressum – Autoservice Oleh</title>
+<meta name="description" content="Impressum von Autoservice Oleh, Kfz-Werkstatt, Kärntner Straße 105, 8053 Graz.">
+<link rel="preload" href="assets/fonts/poppins-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#012266">
+<style>
+/* Poppins, self-hosted (OFL, see assets/fonts/OFL-Poppins.txt) */
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/poppins-regular.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/poppins-semibold.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/poppins-bold.woff2") format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:800;font-display:swap;src:url("assets/fonts/poppins-extrabold.woff2") format("woff2")}
+/* Tokens from the "Autoservice Oleh" design system (same as index.html) */
+:root{
+  --oleh-blue:#042871; --oleh-blue-deep:#012266; --oleh-blue-light:#09307f;
+  --oleh-yellow:#f3bf25; --oleh-silver:#cccccc; --oleh-white:#f2f2f2;
+  --pa-navy-deep:#020937; --pa-neutral:#333333; --pa-neutral-light:#f2f2f2;
+  --ink-light:#042871; --ink-muted-light:#4a5575; --line-blue:#2a4c95; --line-light:#d4d9e6;
+  --link-dark:#b6d3fc; --link-light:#084caa;
+  --space-2:8px; --space-4:16px; --space-6:24px; --space-12:48px; --space-20:80px;
+  --radius-sm:5px; --radius-md:10px; --radius-pill:999px;
+  --font-sans:"Poppins",system-ui,sans-serif;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;font-family:var(--font-sans);font-size:16px;line-height:1.6;color:var(--pa-neutral);background:#fff;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+a[href^="tel:"]{white-space:nowrap}
+:focus-visible{outline:2px solid var(--oleh-yellow);outline-offset:2px}
+.light :focus-visible{outline-color:var(--oleh-blue)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--space-6)}
+@media (max-width:720px){.wrap{padding:0 var(--space-4)}}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;justify-content:center;padding:.6em 1.1em;border-radius:var(--radius-sm);border:2px solid transparent;font:700 14px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;cursor:pointer;overflow:hidden;isolation:isolate;transition:color .3s}
+.btn::before{content:"";position:absolute;left:0;right:0;bottom:0;height:0;z-index:-1;transition:height .3s}
+.btn:hover::before{height:100%}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--oleh-yellow);color:var(--oleh-blue);border-color:var(--oleh-yellow)}
+.btn-primary::before{background:var(--oleh-white)}
+
+/* Header (as on index.html) */
+.header{position:sticky;top:0;z-index:20;background:var(--oleh-blue-deep);border-bottom:1px solid var(--line-blue)}
+.header .wrap{display:flex;align-items:center;gap:var(--space-6);height:76px}
+.logo{display:block;flex:none;line-height:0}
+.logo img{height:44px;width:auto}
+.nav{display:flex;gap:var(--space-6);margin-left:auto}
+.nav a{color:var(--oleh-white);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--oleh-yellow)}
+.header .btn{margin-left:0}
+@media (max-width:1023px){.header .nav{display:none}.header .btn{margin-left:auto}}
+@media (max-width:480px){.header .wrap{gap:var(--space-4);height:72px}.logo img{height:38px}.header .btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}.header .btn{padding:.6em .8em;gap:0}}
+
+/* Legal text: light theme, blue ink on white */
+.legal{padding:var(--space-12) 0 var(--space-20);color:var(--ink-light)}
+.legal .wrap{max-width:832px}
+.draft-note{display:flex;gap:12px;align-items:flex-start;margin:0 0 var(--space-12);padding:var(--space-4) var(--space-6);background:var(--oleh-blue);color:var(--oleh-yellow);border-left:6px solid var(--oleh-yellow);border-radius:var(--radius-sm);font-weight:700;font-size:17px;line-height:1.4}
+.draft-note::before{content:"!";flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:var(--radius-pill);background:var(--oleh-yellow);color:var(--oleh-blue);font-weight:800;font-size:16px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:0 0 var(--space-2);color:var(--oleh-blue)}
+.legal h1{margin:0;font-size:clamp(30px,5vw,44px);font-weight:800;line-height:1.1;text-transform:uppercase;letter-spacing:.01em;color:var(--oleh-blue)}
+.legal h2{margin:var(--space-12) 0 var(--space-4);padding-top:var(--space-6);border-top:1px solid var(--line-light);font-size:20px;font-weight:700;line-height:1.3;color:var(--oleh-blue)}
+.legal h3{margin:var(--space-6) 0 var(--space-2);font-size:17px;font-weight:700;line-height:1.3;color:var(--oleh-blue)}
+.legal p,.legal li{max-width:68ch}
+.legal p{margin:0 0 var(--space-4)}
+.legal ul{margin:0 0 var(--space-4);padding-left:1.2em}
+.legal li{margin:0 0 6px}
+.legal a{color:var(--link-light);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.legal a:hover{color:var(--oleh-blue)}
+.intro{font-size:17px;color:var(--ink-muted-light);margin-top:var(--space-4)!important}
+.facts{display:grid;grid-template-columns:minmax(180px,15em) 1fr;gap:10px var(--space-6);margin:0 0 var(--space-4)}
+.facts dt{font-weight:600;color:var(--ink-muted-light)}
+.facts dd{margin:0}
+@media (max-width:600px){.facts{grid-template-columns:1fr;gap:2px}.facts dd{margin-bottom:var(--space-4)}}
+/* Placeholder: impossible to overlook, blue on yellow (7.9:1) */
+.ph{background:var(--oleh-yellow);color:var(--oleh-blue);font-weight:600;padding:1px 6px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.back{margin-top:var(--space-12)!important}
+.back a{font-weight:600}
+.stand{margin-top:var(--space-12)!important;font-size:14px;color:var(--ink-muted-light)}
+
+/* Footer (as on index.html) */
+.footer{background:var(--pa-navy-deep);color:var(--oleh-silver);font-size:14px;padding:var(--space-6) 0}
+.footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-4)}
+.footer a{color:var(--link-dark)}
+.footer .ua{color:var(--oleh-white)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.header,.footer{display:none}.ph{outline:1px dashed currentColor}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="assets/logo/logo-horizontal-on-blue.svg" alt="Autoservice Oleh – zur Startseite" width="246" height="44"></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="index.html#abschleppdienst">Abschleppdienst</a>
+      <a href="index.html#ueber-uns">Über uns</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Anrufen</span></a>
+  </div>
+</header>
+
+<main class="legal light">
+  <div class="wrap">
+    <p class="draft-note" role="note">Entwurf – vor Veröffentlichung rechtlich prüfen und Platzhalter ergänzen.</p>
+
+    <p class="eyebrow">Rechtliches</p>
+    <h1>Impressum</h1>
+    <p class="intro">Informationen nach § 5 E-Commerce-Gesetz (ECG) und Offenlegung nach § 25 Mediengesetz (MedienG); Angaben nach § 14 Unternehmensgesetzbuch (UGB), soweit das Unternehmen im Firmenbuch eingetragen ist.</p>
+
+    <h2>Unternehmen und Medieninhaber</h2>
+    <dl class="facts">
+      <dt>Unternehmen</dt>
+      <dd>Autoservice Oleh</dd>
+      <dt>Inhaber/in bzw. Firmenwortlaut</dt>
+      <dd><span class="ph">[bitte ergänzen: vollständiger Name der Inhaberin / des Inhabers bzw. Firmenwortlaut]</span></dd>
+      <dt>Rechtsform</dt>
+      <dd><span class="ph">[bitte ergänzen: z.&nbsp;B. Einzelunternehmen, e.U., GmbH]</span></dd>
+      <dt>Anschrift</dt>
+      <dd>Kärntner Straße 105<br>8053 Graz<br>Österreich</dd>
+      <dt>Unternehmensgegenstand</dt>
+      <dd>Kfz-Werkstatt: Service, Diagnose, Reparatur, Reifenservice, Pickerl-Vorbereitung, Karosserie und Lack sowie Abschleppdienst</dd>
+    </dl>
+
+    <h2>Kontakt</h2>
+    <dl class="facts">
+      <dt>Telefon (Service, auch WhatsApp und Telegram)</dt>
+      <dd><a href="tel:+436641515153">+43&nbsp;664&nbsp;1515153</a></dd>
+      <dt>Telefon</dt>
+      <dd><a href="tel:+436705532662">+43&nbsp;670&nbsp;55&nbsp;32&nbsp;662</a></dd>
+      <dt>E-Mail</dt>
+      <dd><span class="ph">[bitte ergänzen: E-Mail-Adresse – nach §&nbsp;5 Abs.&nbsp;1 Z&nbsp;3&nbsp;ECG verpflichtend]</span></dd>
+    </dl>
+
+    <h2>Gewerberechtliche Angaben</h2>
+    <dl class="facts">
+      <dt>Gewerbeberechtigung</dt>
+      <dd><span class="ph">[bitte ergänzen: Gewerbewortlaut laut GISA-Auszug, z.&nbsp;B. „Kraftfahrzeugtechnik“; ggf. weitere Gewerbe, etwa für den Abschleppdienst]</span></dd>
+      <dt>Berufsbezeichnung und Verleihungsstaat</dt>
+      <dd><span class="ph">[bitte ergänzen: Berufsbezeichnung laut Gewerbeberechtigung]</span>, verliehen in Österreich <span class="ph">[bitte bei der rechtlichen Prüfung bestätigen: Angaben nach §&nbsp;5 Abs.&nbsp;1 Z&nbsp;6&nbsp;ECG]</span></dd>
+      <dt>GISA-Zahl</dt>
+      <dd><span class="ph">[bitte ergänzen: GISA-Zahl]</span></dd>
+      <dt>Gewerbebehörde</dt>
+      <dd>Magistrat Graz <span class="ph">[bitte bestätigen: für einen Standort in Graz voraussichtlich zuständig]</span></dd>
+      <dt>Kammerzugehörigkeit</dt>
+      <dd><span class="ph">[bitte ergänzen: Mitgliedschaft Wirtschaftskammer (voraussichtlich WKO Steiermark) und Fachgruppe/Innung]</span></dd>
+      <dt>Anwendbare Rechtsvorschriften</dt>
+      <dd>Gewerbeordnung 1994 (GewO), abrufbar im Rechtsinformationssystem des Bundes: <a href="https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&amp;Gesetzesnummer=10007517" target="_blank" rel="noopener">www.ris.bka.gv.at</a></dd>
+    </dl>
+
+    <h2>Steuer- und Firmenbuchangaben</h2>
+    <dl class="facts">
+      <dt>UID-Nummer</dt>
+      <dd><span class="ph">[bitte ergänzen, falls vorhanden: ATU…]</span></dd>
+      <dt>Firmenbuchnummer</dt>
+      <dd><span class="ph">[bitte ergänzen, falls vorhanden: FN …]</span></dd>
+      <dt>Firmenbuchgericht</dt>
+      <dd><span class="ph">[bitte ergänzen, falls vorhanden: z.&nbsp;B. Landesgericht für Zivilrechtssachen Graz]</span></dd>
+    </dl>
+
+    <h2>Grundlegende Richtung der Website</h2>
+    <p>Information über die Leistungen, Preise und Kontaktmöglichkeiten der Kfz-Werkstatt Autoservice Oleh in Graz (§ 25 Abs. 4 MedienG).</p>
+
+    <!-- Kein Hinweis auf die EU-Plattform zur Online-Streitbeilegung (OS-Plattform): Sie wurde mit 20. Juli 2025 eingestellt
+         (VO (EU) 2024/3228), und über diese Website werden keine Verträge online geschlossen. Bei der rechtlichen Prüfung bestätigen. -->
+
+    <h2>Links auf andere Websites</h2>
+    <p>Diese Website enthält Links zu Angeboten Dritter (Google Maps, WhatsApp, Instagram, Rechtsinformationssystem des Bundes). Für deren Inhalte sind ausschließlich die jeweiligen Betreiber verantwortlich. Welche Daten dabei übertragen werden, steht in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+
+    <h2>Bildnachweis und Schrift</h2>
+    <p>Fotos: aus dem Instagram-Account <a href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener">@oleh_auto_graz</a> <span class="ph">[bitte bestätigen: Urheber/Rechteinhaber der Fotos]</span>. Logo: Autoservice Oleh <span class="ph">[bitte bestätigen: Rechteinhaber des Logos]</span>. Schrift: Poppins (SIL Open Font License), lokal auf diesem Server eingebunden.</p>
+
+    <p class="stand">Stand: Entwurf, September 2026</p>
+    <p class="back"><a href="index.html">← Zur Startseite</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Autoservice Oleh · <span class="ua">Ein ukrainisches Familienunternehmen in Graz</span></span>
+    <span><a href="impressum.html" aria-current="page">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,17 +1,59 @@
 <!doctype html>
-<html lang="de">
+<html lang="de-AT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Autoservice Oleh – Kfz-Werkstatt in Graz</title>
 <meta name="description" content="Autoservice Oleh, Kärntner Straße 105, 8053 Graz: Service, Diagnose, Reparatur, Reifen, Pickerl-Vorbereitung und Abschleppdienst. Schnell & ohne Termin. ☎ 0664 1515153">
-<link rel="preload" href="assets/fonts/poppins-regular.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Open Graph (link previews in WhatsApp, Telegram, Facebook …).
+     TODO before going live: og:image must be an absolute URL, e.g. https://<domain>/assets/og-image.jpg,
+     and add <meta property="og:url"> + <link rel="canonical"> once the domain is known. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:site_name" content="Autoservice Oleh">
+<meta property="og:title" content="Autoservice Oleh – Kfz-Werkstatt in Graz">
+<meta property="og:description" content="Service, Diagnose, Reparatur, Reifen, Pickerl-Vorbereitung und Abschleppdienst – schnell und ohne Termin. Kärntner Straße 105, 8053 Graz · 0664 1515153">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo Autoservice Oleh auf Blau mit Adresse Kärntner Straße 105, 8053 Graz und Telefonnummer 0664 1515153">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/poppins-semibold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/poppins-extrabold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#012266">
+<!-- Structured data (schema.org AutoRepair). Opening hours are not known yet – add "openingHoursSpecification" once confirmed.
+     "image" should become an absolute URL once the domain is known; add "url" then as well. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Autoservice Oleh",
+  "description": "Freie Kfz-Werkstatt in Graz: Service, Diagnose, Reparatur von Fahrwerk, Motor und Bremsen, Reifenservice, Pickerl-Vorbereitung, Karosserie und Lack sowie Abschleppdienst.",
+  "image": "assets/og-image.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kärntner Straße 105",
+    "postalCode": "8053",
+    "addressLocality": "Graz",
+    "addressRegion": "Steiermark",
+    "addressCountry": "AT"
+  },
+  "telephone": ["+43 664 1515153", "+43 670 55 32 662"],
+  "sameAs": ["https://www.instagram.com/oleh_auto_graz/"],
+  "hasMap": "https://maps.app.goo.gl/V1gn39FMLRvSxTvs8",
+  "areaServed": [
+    {"@type": "City", "name": "Graz"},
+    {"@type": "State", "name": "Steiermark"},
+    {"@type": "State", "name": "Kärnten"}
+  ],
+  "knowsLanguage": ["de", "uk", "ru"]
+}
+</script>
 <style>
 /* Poppins, self-hosted (OFL, see assets/fonts/OFL-Poppins.txt) */
 @font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/poppins-regular.woff2") format("woff2")}
@@ -25,18 +67,26 @@
   --oleh-yellow:#f3bf25; --oleh-silver:#cccccc; --oleh-white:#f2f2f2;
   --pa-navy-deep:#020937; --pa-neutral:#333333; --pa-neutral-light:#f2f2f2;
   --ink-light:#042871; --ink-muted-light:#4a5575; --line-blue:#2a4c95; --line-light:#d4d9e6;
+  --link-dark:#b6d3fc;
   --space-2:8px; --space-4:16px; --space-6:24px; --space-12:48px; --space-20:80px;
   --radius-sm:5px; --radius-md:10px; --radius-pill:999px;
   --font-sans:"Poppins",system-ui,sans-serif;
   --wrap:1160px;
+  --header-h:77px; /* 76px bar + 1px border */
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* scroll-padding keeps anchor targets and keyboard focus clear of the sticky header (and of the mobile call bar) */
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px)}
+@media (max-width:720px){html{scroll-padding-bottom:72px}}
+@media (max-width:480px){:root{--header-h:73px}}
 body{margin:0;font-family:var(--font-sans);font-size:16px;line-height:1.5;color:var(--pa-neutral);background:#fff;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
+picture{display:block}
 a{color:inherit}
+a[href^="tel:"]:not(.btn){white-space:nowrap}
+/* Focus ring: yellow on the blue surfaces, blue on white and on yellow */
 :focus-visible{outline:2px solid var(--oleh-yellow);outline-offset:2px}
-.light :focus-visible{outline-color:var(--oleh-blue)}
+.light :focus-visible,.band :focus-visible{outline-color:var(--oleh-blue)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--space-6)}
 .section{padding:var(--space-20) 0}
 @media (max-width:720px){.section{padding:var(--space-12) 0}.wrap{padding:0 var(--space-4)}}
@@ -69,22 +119,39 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 
 /* Header */
 .header{position:sticky;top:0;z-index:20;background:var(--oleh-blue-deep);border-bottom:1px solid var(--line-blue)}
-.header .wrap{display:flex;align-items:center;gap:var(--space-6);height:72px}
+.header .wrap{display:flex;align-items:center;gap:var(--space-6);height:calc(var(--header-h) - 1px)}
 .logo{display:block;flex:none;line-height:0}
 .logo img{height:44px;width:auto}
+/* While the big hero logo is on screen the header logo steps back (class set by the script at the end; without JS it stays visible) */
+.header .logo{transition:opacity .3s,visibility .3s}
+.header.at-top .logo{opacity:0;visibility:hidden}
 .nav{display:flex;gap:var(--space-6);margin-left:auto}
-.nav a{color:var(--oleh-white);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:6px 0;border-bottom:2px solid transparent}
+.nav a{color:var(--oleh-white);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:2px solid transparent}
 .nav a:hover{border-bottom-color:var(--oleh-yellow)}
 .header .btn{padding:.6em 1.1em;font-size:14px}
-@media (max-width:960px){.nav{display:none}.header .btn{margin-left:auto}}
-@media (max-width:480px){.header .wrap{gap:var(--space-4)}.logo img{height:38px}.header .btn span{display:none}.header .btn{min-width:0;padding:.6em .8em}}
+@media (max-width:1023px){.header .nav{display:none}.header .btn{margin-left:auto}}
+@media (max-width:480px){.header .wrap{gap:var(--space-4)}.logo img{height:38px}.header .btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap} /* visually hidden, still the accessible name */.header .btn{min-width:0;padding:.6em .8em;gap:0}}
+
+/* Jump links under the header on tablets and phones (not sticky, so the sticky header stays small) */
+.jumpnav{display:none;background:var(--oleh-blue-deep);border-bottom:1px solid var(--line-blue)}
+.jumpnav-list{--fade-l:var(--space-4);--fade-r:var(--space-6);display:flex;gap:var(--space-6);max-width:var(--wrap);margin:0 auto;padding:4px var(--space-6);overflow-x:auto;scrollbar-width:none;scroll-padding-inline:calc(var(--space-6) + 4px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--fade-l),#000 calc(100% - var(--fade-r)),transparent);mask-image:linear-gradient(90deg,transparent,#000 var(--fade-l),#000 calc(100% - var(--fade-r)),transparent)}
+/* the script (3) removes the fade on a side with nothing left to scroll, so the first and last link and their focus ring are never faded */
+.jumpnav-list.at-start{--fade-l:0px}
+.jumpnav-list.at-end{--fade-r:0px}
+.jumpnav-list::-webkit-scrollbar{display:none}
+.jumpnav a{flex:none;color:var(--oleh-white);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;padding:8px 0;border-bottom:2px solid transparent}
+.jumpnav a:hover{border-bottom-color:var(--oleh-yellow)}
+@media (max-width:1023px){.jumpnav{display:block}}
+@media (max-width:720px){.jumpnav-list{gap:20px;padding:4px var(--space-4)}}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 40% 35%,var(--oleh-blue-light) 0%,var(--oleh-blue) 55%,var(--oleh-blue-deep) 100%);color:var(--oleh-white)}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-12);align-items:center;padding-top:var(--space-12);padding-bottom:var(--space-12)}
-.hero-logo{display:block;width:100%;max-width:500px;height:auto;margin:0 0 var(--space-6)}
+/* clear space under the stacked logo ≈ height of the "A" in AUTOSERVICE */
+.hero-logo{display:block;width:100%;max-width:500px;height:auto;margin:0 0 clamp(36px,10vw,48px)}
 .hero h1{font-size:clamp(20px,2.4vw,26px);font-weight:600;line-height:1.3;max-width:560px}
 .hero h1 em{font-style:normal;color:var(--oleh-yellow)}
+@media (min-width:400px){.hero h1 em{display:block}}
 .addr{display:flex;align-items:center;gap:var(--space-4);color:var(--oleh-yellow);font-weight:600;font-size:18px;margin:var(--space-6) 0 var(--space-2)}
 .addr::before,.addr::after{content:"";height:2px;width:40px;background:var(--oleh-yellow)}
 @media (max-width:400px){.addr{font-size:16px}.addr::before,.addr::after{display:none}}
@@ -92,14 +159,15 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .phone-xl:hover{color:var(--oleh-yellow)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)}
 .hero-photo{position:relative;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 50px rgba(1,10,40,.5)}
+.hero-photo picture{height:100%}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 .badge{position:absolute;right:16px;bottom:16px;width:116px;height:116px;border-radius:var(--radius-pill);background:var(--oleh-yellow);color:var(--oleh-blue);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:15px;line-height:1.1;text-transform:uppercase;transform:rotate(-8deg)}
 .badge small{display:block;font-weight:600;font-size:11px;margin-top:4px;text-transform:none}
-@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-photo{aspect-ratio:4/3;max-height:420px}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-photo{aspect-ratio:4/3;max-height:420px}.hero .phone-xl{font-size:clamp(34px,6.5vw,48px)}}
 
 /* Offer band (tilted yellow strip, pa-ag / sign move) */
 .offer{background:var(--oleh-blue);padding:var(--space-6) 0;overflow:hidden}
-.offer-strip{background:var(--oleh-yellow);color:var(--oleh-blue);transform:rotate(-1.2deg);margin:0 -20px;padding:var(--space-4) 20px;text-align:center;font-weight:800;font-size:clamp(18px,2.6vw,28px);text-transform:uppercase;letter-spacing:.01em}
+.offer-strip{background:var(--oleh-yellow);color:var(--oleh-blue);transform:rotate(-1.2deg);margin:0 -20px;padding:var(--space-4) calc(20px + var(--space-4));text-align:center;text-wrap:balance;font-weight:800;font-size:clamp(18px,2.6vw,28px);text-transform:uppercase;letter-spacing:.01em}
 .offer-strip span{font-weight:600;text-transform:none;font-size:.62em;display:block;letter-spacing:0}
 
 /* Services */
@@ -123,7 +191,7 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 
 /* Towing */
 .tow{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center}
-.regions{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-6) 0}
+.regions{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-6) 0;padding:0;list-style:none}
 .chip{border:2px solid var(--oleh-yellow);color:var(--oleh-yellow);border-radius:var(--radius-pill);padding:6px 16px;font-weight:600;font-size:15px}
 .stripes{border-radius:var(--radius-md);padding:var(--space-12) var(--space-6);text-align:center;background:repeating-linear-gradient(-45deg,var(--oleh-blue) 0 14px,var(--oleh-blue-light) 14px 28px);border:1px solid var(--line-blue)}
 .stripes .phone-xl{font-size:clamp(30px,4vw,44px)}
@@ -137,15 +205,16 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .checks svg{flex:none;width:26px;height:26px;color:var(--oleh-yellow);background:var(--oleh-blue);border-radius:var(--radius-pill);padding:4px}
 .why-photos{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
 .why-photos img{border-radius:var(--radius-md);width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
-.why-photos img:nth-child(2){margin-top:var(--space-12)}
+.why-photos > :nth-child(2){margin-top:var(--space-12)}
 @media (max-width:860px){.why{grid-template-columns:1fr}}
 
 /* Gallery */
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);margin-top:var(--space-12)}
 .gallery figure{margin:0;position:relative;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:3/4}
+.gallery picture{height:100%}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .gallery figure:hover img{transform:scale(1.04)}
-.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:32px 12px 12px;background:linear-gradient(transparent,rgba(1,15,50,.85));color:var(--oleh-white);font-size:14px;font-weight:600}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:32px 12px 12px;background:linear-gradient(transparent,rgba(1,15,50,.9) 45%);color:var(--oleh-white);font-size:14px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.7)}
 @media (max-width:860px){.gallery{grid-template-columns:repeat(2,1fr)}}
 
 /* Contact */
@@ -156,18 +225,30 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .clist a{text-decoration:none;font-weight:600;font-size:19px}
 .clist a:hover{color:var(--oleh-yellow)}
 .clist span{display:block;font-size:14px;color:var(--oleh-silver)}
-.map{border-radius:var(--radius-md);overflow:hidden;min-height:340px;border:1px solid var(--line-blue);background:var(--oleh-blue-light)}
-.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+/* Map: two-click placeholder – Google is only contacted after "Karte laden" */
+.map{display:flex;border-radius:var(--radius-md);overflow:hidden;min-height:340px;border:1px solid var(--line-blue);background:var(--oleh-blue-light)}
+.map iframe{flex:1;width:100%;min-height:340px;border:0;display:block}
+/* browsers do not match :focus on an iframe whose content has focus, so the script sets .has-focus on the box */
+.map iframe:focus-visible{outline:none}
+.map.has-focus{outline:3px solid var(--oleh-yellow);outline-offset:3px}
+.map-ph{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-4);padding:var(--space-12) var(--space-6);text-align:center;background:repeating-linear-gradient(-45deg,var(--oleh-blue) 0 14px,var(--oleh-blue-light) 14px 28px)}
+.map-ph > svg{width:40px;height:40px;color:var(--oleh-yellow)}
+.map-addr{margin:0;font-weight:600;font-size:19px;line-height:1.35}
+.map-ph a:not(.btn){color:var(--link-dark)}
+.map-route{margin:0;font-size:15px}
+.map-consent{display:flex;flex-direction:column;align-items:center;gap:var(--space-4);margin-top:var(--space-2)}
+.map-consent[hidden]{display:none}
+.map-consent p{margin:0;max-width:34em;font-size:13px;color:var(--oleh-silver)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* Yellow contact band + footer */
 .band{background:var(--oleh-yellow);color:var(--oleh-blue);padding:var(--space-6) 0}
 .band .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-4) var(--space-12);font-weight:700;font-size:18px}
 .band a{text-decoration:none;display:inline-flex;align-items:center;gap:10px}
-.band svg{width:22px;height:22px}
+.band svg{width:22px;height:22px;flex:none}
 .footer{background:var(--pa-navy-deep);color:var(--oleh-silver);font-size:14px;padding:var(--space-6) 0 calc(var(--space-6) + 64px)}
 .footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-4)}
-.footer a{color:#b6d3fc}
+.footer a{color:var(--link-dark)}
 .footer .ua{color:var(--oleh-white)}
 @media (min-width:721px){.footer{padding-bottom:var(--space-6)}}
 
@@ -176,14 +257,16 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 8px;font-weight:700;text-decoration:none;text-transform:uppercase;font-size:14px;letter-spacing:.03em}
 .callbar a:first-child{background:var(--oleh-yellow);color:var(--oleh-blue)}
 .callbar a:last-child{color:var(--oleh-white)}
+.callbar a:focus-visible{outline-offset:-4px}
+.callbar a:first-child:focus-visible{outline-color:var(--oleh-blue)}
 .callbar svg{width:20px;height:20px}
 @media (max-width:720px){.callbar{display:grid}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
+<body id="top">
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.43.25-.4.71-1.33a.45.45 0 0 0 0-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.47a.9.9 0 0 0-.66.31 2.8 2.8 0 0 0-.86 2.07 4.8 4.8 0 0 0 1 2.55 11 11 0 0 0 4.2 3.7c1.56.67 2.17.73 2.95.61a2.5 2.5 0 0 0 1.66-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.23-.16-.48-.28z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
@@ -208,11 +291,21 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="btn btn-primary" href="tel:+436641515153"><svg><use href="#i-phone"/></svg><span>Anrufen</span></a>
+    <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Anrufen</span></a>
   </div>
 </header>
 
-<main id="top">
+<nav class="jumpnav" aria-label="Seitennavigation">
+  <div class="jumpnav-list">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#preise">Preise</a>
+    <a href="#abschleppdienst">Abschleppdienst</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+</nav>
+
+<main>
 
 <section class="hero">
   <div class="wrap">
@@ -220,14 +313,17 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <img class="hero-logo" src="assets/logo/logo-stacked-on-blue.svg" alt="Autoservice Oleh" width="500" height="255" fetchpriority="high">
       <h1>Ihre freie Kfz-Werkstatt in Graz – <em>schnell, fair und ohne Termin.</em></h1>
       <p class="addr">Kärntner Straße 105, Graz</p>
-      <a class="phone-xl" href="tel:+436641515153">0664 1515153</a>
+      <a class="phone-xl" href="tel:+436641515153">0664&nbsp;1515153</a>
       <div class="ctas">
-        <a class="btn btn-primary" href="tel:+436641515153"><svg><use href="#i-phone"/></svg>Jetzt anrufen</a>
-        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Jetzt anrufen</a>
+        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
       </div>
     </div>
     <div class="hero-photo">
-      <img src="assets/img/werkstatt-hebebuehne.jpg" alt="Werkstatt von Autoservice Oleh: Auto vor der blauen Hebebühne, darüber das Banner Achsvermessung" width="900" height="1492" fetchpriority="high">
+      <picture>
+        <source type="image/webp" srcset="assets/img/werkstatt-hebebuehne-900.webp">
+        <img src="assets/img/werkstatt-hebebuehne.jpg" alt="Werkstatt von Autoservice Oleh: Auto vor der blauen Hebebühne, darüber das Banner Achsvermessung" width="900" height="1492" fetchpriority="high">
+      </picture>
       <div class="badge">Ohne<br>Termin<small>schnell &amp; fair</small></div>
     </div>
   </div>
@@ -247,13 +343,13 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <p class="lead" style="margin:0;max-width:420px">Von der Diagnose bis zur Lackierung – alles in einer Werkstatt, von erfahrenen Fachkräften.</p>
     </div>
     <div class="services">
-      <article class="card"><div class="ic"><svg><use href="#i-chip"/></svg></div><h3>Computergestützte Diagnose</h3><p>Fehlerspeicher auslesen und finden, was Ihr Auto wirklich hat.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-wrench"/></svg></div><h3>Reparatur von Fahrwerk, Motor und Bremsen</h3><p>Zuverlässige Reparaturen, damit Sie sicher unterwegs sind.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-oil"/></svg></div><h3>Öl- und Filterwechsel</h3><p>Motoröl, Filter und Bremsflüssigkeit – das komplette Service.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-tire"/></svg></div><h3>Reifenservice und Auswuchten</h3><p>Reifenwechsel, Auswuchten und Achsvermessung – fit für jede Saison.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-doc"/></svg></div><h3>Pickerl-Vorbereitung</h3><p>Wir machen Ihr Auto bereit für die §57a-Begutachtung.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-spray"/></svg></div><h3>Karosserieschweißen und Lackierung</h3><p>Schweißarbeiten an der Karosserie und Lackierung.</p></article>
-      <article class="card"><div class="ic"><svg><use href="#i-tow"/></svg></div><h3>Abschleppen zur Werkstatt</h3><p>Panne? Wir holen Ihr Auto ab und bringen es zu uns.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-chip"/></svg></div><h3>Computergestützte Diagnose</h3><p>Fehlerspeicher auslesen und finden, was Ihr Auto wirklich hat.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-wrench"/></svg></div><h3>Reparatur von Fahrwerk, Motor und Bremsen</h3><p>Zuverlässige Reparaturen, damit Sie sicher unterwegs sind.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-oil"/></svg></div><h3>Öl- und Filterwechsel</h3><p>Motoröl, Filter und Bremsflüssigkeit – das komplette Service.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-tire"/></svg></div><h3>Reifenservice und Auswuchten</h3><p>Reifenwechsel, Auswuchten und Achsvermessung – fit für jede Saison.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-doc"/></svg></div><h3>Pickerl-Vorbereitung</h3><p>Wir machen Ihr Auto bereit für die §57a-Begutachtung.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-spray"/></svg></div><h3>Karosserieschweißen und Lackierung</h3><p>Schweißarbeiten an der Karosserie und Lackierung.</p></article>
+      <article class="card"><div class="ic"><svg aria-hidden="true" focusable="false"><use href="#i-tow"/></svg></div><h3>Abschleppen zur Werkstatt</h3><p>Panne? Wir holen Ihr Auto ab und bringen es zu uns.</p></article>
     </div>
   </div>
 </section>
@@ -278,14 +374,14 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <p class="eyebrow">Abschleppdienst</p>
       <h2>Panne mitten im Stress? Kein Problem.</h2>
       <p class="lead">Wir sind sofort unterwegs: schnelle Anfahrt und schonendes Abschleppen direkt in unsere Werkstatt.</p>
-      <div class="regions" aria-label="Einsatzgebiete">
-        <span class="chip">Graz und Umgebung</span><span class="chip">Steiermark</span><span class="chip">Kärnten</span>
-      </div>
+      <ul class="regions" aria-label="Einsatzgebiete">
+        <li class="chip">Graz und Umgebung</li><li class="chip">Steiermark</li><li class="chip">Kärnten</li>
+      </ul>
     </div>
     <div class="stripes">
       <p>Abschlepp-Hotline</p>
-      <a class="phone-xl" href="tel:+436641515153">0664 1515153</a>
-      <div style="margin-top:var(--space-6)"><a class="btn btn-primary" href="tel:+436641515153"><svg><use href="#i-phone"/></svg>Abschleppdienst rufen</a></div>
+      <a class="phone-xl" href="tel:+436641515153">0664&nbsp;1515153</a>
+      <div style="margin-top:var(--space-6)"><a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Abschleppdienst rufen</a></div>
     </div>
   </div>
 </section>
@@ -297,15 +393,15 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <h2>Ein Familienbetrieb, dem man vertraut</h2>
       <p class="lead">Autoservice Oleh ist ein ukrainisches Familienunternehmen in Graz. Seit Ende 2025 reparieren wir in unserer eigenen Werkstatt an der Kärntner Straße – ehrlich, sorgfältig und zu fairen Preisen.</p>
       <ul class="checks">
-        <li><svg><use href="#i-check"/></svg>Erfahrene Fachkräfte</li>
-        <li><svg><use href="#i-check"/></svg>Qualitativ, schnell und mit Garantie</li>
-        <li><svg><use href="#i-check"/></svg>Faire Preise und individueller Ansatz</li>
-        <li><svg><use href="#i-check"/></svg>Wir sprechen Deutsch, Ukrainisch und Russisch</li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Erfahrene Fachkräfte</li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Qualitativ, schnell und mit Garantie</li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Faire Preise und individueller Ansatz</li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Wir sprechen Deutsch, Ukrainisch und Russisch</li>
       </ul>
     </div>
     <div class="why-photos">
-      <img src="assets/img/neue-hebebuehne.jpg" alt="Neue Hebebühne in der Werkstatt" loading="lazy" width="720" height="1280">
-      <img src="assets/img/motor-mercedes.jpg" alt="Arbeit am Motor eines Mercedes" loading="lazy" width="720" height="1280">
+      <picture><source type="image/webp" srcset="assets/img/neue-hebebuehne-600.webp"><img src="assets/img/neue-hebebuehne.jpg" alt="Neue Hebebühne in der Werkstatt" loading="lazy" width="720" height="1280"></picture>
+      <picture><source type="image/webp" srcset="assets/img/motor-mercedes-600.webp"><img src="assets/img/motor-mercedes.jpg" alt="Arbeit am Motor eines Mercedes" loading="lazy" width="720" height="1280"></picture>
     </div>
   </div>
 </section>
@@ -315,12 +411,12 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
     <p class="eyebrow">Aus der Werkstatt</p>
     <h2>Einblicke</h2>
     <div class="gallery">
-      <figure><img src="assets/img/motor-bmw.jpg" alt="Motorraum eines BMW" loading="lazy" width="720" height="1280"><figcaption>Motor-Check</figcaption></figure>
-      <figure><img src="assets/img/fahrwerk-unterboden.jpg" alt="Auto auf der Hebebühne, Blick auf den Unterboden" loading="lazy" width="720" height="1280"><figcaption>Fahrwerk &amp; Unterboden</figcaption></figure>
-      <figure><img src="assets/img/motor-mercedes.jpg" alt="Arbeit am Motor eines Mercedes" loading="lazy" width="720" height="1280"><figcaption>Reparatur am Motor</figcaption></figure>
-      <figure><img src="assets/img/werkstatt-hebebuehne.jpg" alt="Werkstattbox mit Hebebühne" loading="lazy" width="900" height="1492"><figcaption>Unsere Werkstatt</figcaption></figure>
+      <figure><picture><source type="image/webp" srcset="assets/img/motor-bmw-600.webp"><img src="assets/img/motor-bmw.jpg" alt="Motorraum eines BMW" loading="lazy" width="720" height="1280"></picture><figcaption>Motor-Check</figcaption></figure>
+      <figure><picture><source type="image/webp" srcset="assets/img/fahrwerk-unterboden-600.webp"><img src="assets/img/fahrwerk-unterboden.jpg" alt="Auto auf der Hebebühne, Blick auf den Unterboden" loading="lazy" width="720" height="1280"></picture><figcaption>Fahrwerk &amp; Unterboden</figcaption></figure>
+      <figure><picture><source type="image/webp" srcset="assets/img/motorraum-mpi.webp"><img src="assets/img/motorraum-mpi.jpg" alt="Geöffneter Motorraum mit Motorabdeckung „MPI“" loading="lazy" width="436" height="582"></picture><figcaption>Unter der Motorhaube</figcaption></figure>
+      <figure><picture><source type="image/webp" srcset="assets/img/werkstatt-hebebuehne-600.webp"><img src="assets/img/werkstatt-hebebuehne.jpg" alt="Werkstattbox mit Hebebühne" loading="lazy" width="900" height="1492"></picture><figcaption>Unsere Werkstatt</figcaption></figure>
     </div>
-    <p style="margin-top:var(--space-6)"><a class="btn btn-blue" href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Mehr auf Instagram</a></p>
+    <p style="margin-top:var(--space-6)"><a class="btn btn-blue" href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-ig"/></svg>Mehr auf Instagram</a></p>
   </div>
 </section>
 
@@ -330,18 +426,27 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <p class="eyebrow">Kontakt</p>
       <h2>So erreichen Sie uns</h2>
       <ul class="clist">
-        <li><svg><use href="#i-phone"/></svg><div><a href="tel:+436641515153">+43 664 1515153</a><span>Service · auch WhatsApp und Telegram</span></div></li>
-        <li><svg><use href="#i-phone"/></svg><div><a href="tel:+436705532662">+43 670 55 32 662</a><span>Telefon</span></div></li>
-        <li><svg><use href="#i-pin"/></svg><div><a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener">Kärntner Straße 105, 8053 Graz</a><span>Werkstatt und Büro · Route in Google Maps</span></div></li>
-        <li><svg><use href="#i-ig"/></svg><div><a href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener">@oleh_auto_graz</a><span>Instagram</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><div><a href="tel:+436641515153">+43&nbsp;664&nbsp;1515153</a><span>Service · auch WhatsApp und Telegram</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><div><a href="tel:+436705532662">+43&nbsp;670&nbsp;55&nbsp;32&nbsp;662</a><span>Telefon</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><div><a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener">Kärntner Straße 105, 8053 Graz</a><span>Werkstatt und Büro · Route in Google Maps</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-ig"/></svg><div><a href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener">@oleh_auto_graz</a><span>Instagram</span></div></li>
       </ul>
       <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)">
-        <a class="btn btn-primary" href="tel:+436641515153"><svg><use href="#i-phone"/></svg>Anrufen</a>
-        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Anrufen</a>
+        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
       </div>
     </div>
-    <div class="map">
-      <iframe title="Karte: Kärntner Straße 105, 8053 Graz" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=K%C3%A4rntner+Stra%C3%9Fe+105,+8053+Graz&amp;output=embed"></iframe>
+    <div class="map" id="karte">
+      <!-- Two-click solution: Google Maps is only loaded after the visitor clicks "Karte laden" (DSGVO / TKG 2021 § 165). -->
+      <div class="map-ph">
+        <svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>
+        <p class="map-addr">Kärntner Straße 105<br>8053 Graz</p>
+        <p class="map-route"><a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener">Route in Google Maps</a></p>
+        <div class="map-consent" hidden>
+          <button type="button" class="btn btn-outline map-load" data-src="https://www.google.com/maps?q=K%C3%A4rntner+Stra%C3%9Fe+105,+8053+Graz&amp;output=embed">Karte laden</button>
+          <p>Beim Laden der Karte werden Daten (u.&nbsp;a. Ihre IP-Adresse) an Google übertragen. Mehr in der <a href="datenschutz.html#google-maps">Datenschutzerklärung</a>.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -350,23 +455,87 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 
 <div class="band">
   <div class="wrap">
-    <a href="tel:+436641515153"><svg><use href="#i-wa"/></svg>+43 664 1515153</a>
-    <a href="tel:+436705532662"><svg><use href="#i-phone"/></svg>+43 670 55 32 662</a>
-    <a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Kärntner Straße 105, 8053 Graz</a>
+    <a href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>+43&nbsp;664&nbsp;1515153</a>
+    <a href="tel:+436705532662"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>+43&nbsp;670&nbsp;55&nbsp;32&nbsp;662</a>
+    <a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Kärntner Straße 105, 8053 Graz</a>
   </div>
 </div>
 
 <footer class="footer">
   <div class="wrap">
     <span>© 2026 Autoservice Oleh · <span class="ua">Ein ukrainisches Familienunternehmen in Graz</span></span>
-    <span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></span>
+    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
 
 <nav class="callbar" aria-label="Schnellkontakt">
-  <a href="tel:+436641515153"><svg><use href="#i-phone"/></svg>Anrufen</a>
-  <a href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Anrufen</a>
+  <a href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
 </nav>
+
+<script>
+/* 1) Map: insert the Google Maps iframe only after a click (two-click solution). */
+(function(){
+  var btn=document.querySelector('.map-load');
+  if(!btn) return;
+  var box=btn.closest('.map');
+  btn.closest('.map-consent').hidden=false;
+  /* The ring around the map (.has-focus) is for keyboard users only, like :focus-visible:
+     it is shown when focus enters the map right after a key press, not after a mouse or touch click. */
+  var lastKey=0;
+  document.addEventListener('keydown',function(){lastKey=Date.now();},true);
+  document.addEventListener('pointerdown',function(){lastKey=0;},true);
+  btn.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.title='Google Maps: Kärntner Straße 105, 8053 Graz';
+    f.setAttribute('referrerpolicy','no-referrer');
+    f.setAttribute('allowfullscreen','');
+    f.src=btn.getAttribute('data-src');
+    box.replaceChildren(f);
+    var inMap=false;
+    function sync(){
+      var now=document.activeElement===f;
+      if(now&&!inMap) box.classList.toggle('has-focus',Date.now()-lastKey<500);
+      if(!now) box.classList.remove('has-focus');
+      inMap=now;
+    }
+    window.addEventListener('blur',function(){setTimeout(sync,0);});
+    window.addEventListener('focus',sync);
+    document.addEventListener('focusin',sync);
+    f.focus();
+    setTimeout(sync,0);
+  });
+})();
+/* 2) The header logo steps back while the big hero logo is on screen. Without JS it simply stays visible. */
+(function(){
+  var h=document.querySelector('.header'), l=document.querySelector('.hero-logo');
+  if(!h||!l||!('IntersectionObserver' in window)) return;
+  var top=h.offsetHeight, r=l.getBoundingClientRect();
+  h.classList.toggle('at-top', r.bottom>top && r.top<window.innerHeight);
+  new IntersectionObserver(function(e){h.classList.toggle('at-top',e[0].isIntersecting);},{rootMargin:'-'+top+'px 0px 0px 0px'}).observe(l);
+})();
+/* 3) Jump links (tablets and phones): scroll a focused link fully into the row, and fade only the side that can still scroll. */
+(function(){
+  var list=document.querySelector('.jumpnav-list');
+  if(!list) return;
+  function edges(){
+    var max=list.scrollWidth-list.clientWidth;
+    list.classList.toggle('at-start',list.scrollLeft<=1);
+    list.classList.toggle('at-end',list.scrollLeft>=max-1);
+  }
+  list.addEventListener('focusin',function(e){
+    var pad=parseFloat(getComputedStyle(list).scrollPaddingLeft)||0;
+    var a=e.target.getBoundingClientRect(), c=list.getBoundingClientRect(), dx=0;
+    if(a.left<c.left+pad) dx=a.left-(c.left+pad);
+    else if(a.right>c.right-pad) dx=a.right-(c.right-pad);
+    if(dx) list.scrollLeft+=dx;
+    edges();
+  });
+  list.addEventListener('scroll',edges,{passive:true});
+  window.addEventListener('resize',edges);
+  edges();
+})();
+</script>
 
 </body>
 </html>
