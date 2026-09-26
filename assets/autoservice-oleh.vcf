@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Autoservice Oleh;;;
+FN:Autoservice Oleh
+ORG:Autoservice Oleh
+TEL;TYPE=CELL,VOICE;PREF=1:+436641515153
+TEL;TYPE=WORK,VOICE:+436705532662
+ADR;TYPE=WORK:;;Kärntner Straße 105;Graz;;8053;Österreich
+URL:https://cyrexxone.github.io/AUTOSERVICE/
+URL:https://www.instagram.com/oleh_auto_graz/
+NOTE:Kfz-Werkstatt in Graz – Service, Reparatur, Reifen, Abschleppdienst. WhatsApp und Telegram: +43 664 1515153
+END:VCARD

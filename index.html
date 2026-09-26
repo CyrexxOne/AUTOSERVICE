@@ -134,6 +134,7 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .header .btn{padding:.6em 1.1em;font-size:14px}
 @media (max-width:1023px){.header .nav{display:none}.header .lang{margin-left:auto}}
 @media (max-width:480px){.header .wrap{gap:var(--space-4)}.logo img{height:38px}.header .btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap} /* visually hidden, still the accessible name */.header .btn{min-width:0;padding:.6em .8em;gap:0}}
+@media (max-width:360px){.header .wrap{gap:10px}.logo img{height:32px}.lang{padding:5px 6px}}
 
 /* Jump links under the header on tablets and phones (not sticky, so the sticky header stays small) */
 .jumpnav{display:none;background:var(--oleh-blue-deep);border-bottom:1px solid var(--line-blue)}
@@ -257,13 +258,14 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 @media (min-width:721px){.footer{padding-bottom:var(--space-6)}}
 
 /* Mobile call bar */
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;grid-template-columns:1fr 1fr;background:var(--oleh-blue-deep);border-top:1px solid var(--line-blue)}
-.callbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 8px;font-weight:700;text-decoration:none;text-transform:uppercase;font-size:14px;letter-spacing:.03em}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;grid-template-columns:1.15fr 1fr 1fr 1fr;background:var(--oleh-blue-deep);border-top:1px solid var(--line-blue)}
+.callbar a{display:flex;align-items:center;justify-content:center;gap:6px;padding:16px 4px;font-weight:700;text-decoration:none;text-transform:uppercase;font-size:13px;letter-spacing:.02em}
 .callbar a:first-child{background:var(--oleh-yellow);color:var(--oleh-blue)}
-.callbar a:last-child{color:var(--oleh-white)}
+.callbar a:not(:first-child){color:var(--oleh-white);border-left:1px solid var(--line-blue)}
 .callbar a:focus-visible{outline-offset:-4px}
 .callbar a:first-child:focus-visible{outline-color:var(--oleh-blue)}
-.callbar svg{width:20px;height:20px}
+.callbar svg{width:20px;height:20px;flex:none}
+@media (max-width:480px){.callbar a{padding:14px 2px}.callbar svg{width:26px;height:26px}.callbar a span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap} /* icons only; label stays for screen readers */}
 @media (max-width:720px){.callbar{display:grid}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -273,6 +275,9 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.43.25-.4.71-1.33a.45.45 0 0 0 0-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.47a.9.9 0 0 0-.66.31 2.8 2.8 0 0 0-.86 2.07 4.8 4.8 0 0 0 1 2.55 11 11 0 0 0 4.2 3.7c1.56.67 2.17.73 2.95.61a2.5 2.5 0 0 0 1.66-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.23-.16-.48-.28z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 3.4 18.6 20c-.25 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.27.27-.5.5-1 .5l.36-5.1L18 6.5c.4-.36-.09-.56-.62-.2L5.9 13.5l-4.95-1.55c-1.07-.34-1.1-1.07.23-1.6L20.5 2.9c.9-.33 1.68.2 1.4.5z"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c4.4 0 8 2 8 4.5V20H4v-2.5C4 15 7.6 13 12 13z"/></symbol>
+  <symbol id="i-vb" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 3 5 3 9.9v3.3c0 3.6 1.9 6.1 5 7v2.8l3-2.3c.3 0 .7.1 1 .1 5.5 0 9-3 9-7.6V9.9C21 5 17.5 2 12 2zm-.3 4.6c.2 0 .4.1.4.4s-.2.4-.4.4c-1.5.1-2.7 1.3-2.8 2.8 0 .2-.2.4-.4.4s-.4-.2-.4-.4c.1-2 1.7-3.5 3.6-3.6zm.1 1.7c.2 0 .4.2.4.4s-.2.4-.4.4c-.7 0-1.3.6-1.3 1.3 0 .2-.2.4-.4.4s-.4-.2-.4-.4c0-1.2.9-2.1 2.1-2.1zm3.5-3.4c3.2.2 5.3 2.4 5.3 5.5 0 .2-.2.4-.4.4s-.4-.2-.4-.4c0-2.7-1.8-4.5-4.6-4.7-.2 0-.4-.2-.4-.4s.3-.4.5-.4zM9.4 8.3c.3 0 .5.1.7.4l.9 1.4c.2.4.1.8-.2 1.1l-.5.5c-.1.1-.1.3 0 .5.6 1.2 1.6 2.2 2.8 2.8.2.1.4.1.5 0l.5-.5c.3-.3.8-.4 1.1-.2l1.4.9c.4.3.5.8.2 1.2l-.5.6c-.5.6-1.3.8-2 .5-2.9-1.2-5.2-3.4-6.4-6.3-.3-.7-.1-1.5.5-2l.6-.5c.1-.3.3-.4.4-.4z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2c-2.7 0-3 0-4.1.06C4.3 2.2 2.2 4.3 2.06 7.9 2 9 2 9.3 2 12s0 3 .06 4.1c.14 3.6 2.24 5.7 5.84 5.84C9 22 9.3 22 12 22s3 0 4.1-.06c3.6-.14 5.7-2.24 5.84-5.84C22 15 22 14.7 22 12s0-3-.06-4.1C21.8 4.3 19.7 2.2 16.1 2.06 15 2 14.7 2 12 2zm0 1.8c2.67 0 3 0 4 .06 2.6.12 3.9 1.4 4.04 4.04.05 1.05.06 1.36.06 4.1s0 3.05-.06 4.1c-.13 2.63-1.43 3.92-4.04 4.04-1.05.05-1.36.06-4 .06s-3-.01-4-.06c-2.63-.12-3.92-1.42-4.04-4.04C3.8 15.05 3.8 14.74 3.8 12s0-3.05.06-4.1C3.98 5.27 5.28 3.97 7.9 3.86 8.95 3.8 9.26 3.8 12 3.8z"/></symbol>
@@ -321,7 +326,9 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <a class="phone-xl" href="tel:+436641515153">0664&nbsp;1515153</a>
       <div class="ctas">
         <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Jetzt anrufen</a>
-        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-outline" href="https://wa.me/436641515153?text=Hallo%20Autoservice%20Oleh%2C%20" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-outline" href="https://t.me/+436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg>Telegram</a>
+        <a class="btn btn-outline" href="viber://chat?number=%2B436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-vb"/></svg>Viber</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -431,14 +438,20 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       <p class="eyebrow">Kontakt</p>
       <h2>So erreichen Sie uns</h2>
       <ul class="clist">
-        <li><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><div><a href="tel:+436641515153">+43&nbsp;664&nbsp;1515153</a><span>Service · auch WhatsApp und Telegram</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><div><a href="tel:+436641515153">+43&nbsp;664&nbsp;1515153</a><span>Service · Anrufen</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><div><a href="https://wa.me/436641515153?text=Hallo%20Autoservice%20Oleh%2C%20" target="_blank" rel="noopener">WhatsApp</a><span>Chat in WhatsApp · +43&nbsp;664&nbsp;1515153</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg><div><a href="https://t.me/+436641515153" target="_blank" rel="noopener">Telegram</a><span>Chat in Telegram · +43&nbsp;664&nbsp;1515153</span></div></li>
+        <li><svg aria-hidden="true" focusable="false"><use href="#i-vb"/></svg><div><a href="viber://chat?number=%2B436641515153">Viber</a><span>Chat in Viber · +43&nbsp;664&nbsp;1515153</span></div></li>
         <li><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><div><a href="tel:+436705532662">+43&nbsp;670&nbsp;55&nbsp;32&nbsp;662</a><span>Telefon</span></div></li>
         <li><svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><div><a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener">Kärntner Straße 105, 8053 Graz</a><span>Werkstatt und Büro · Route in Google Maps</span></div></li>
         <li><svg aria-hidden="true" focusable="false"><use href="#i-ig"/></svg><div><a href="https://www.instagram.com/oleh_auto_graz/" target="_blank" rel="noopener">@oleh_auto_graz</a><span>Instagram</span></div></li>
       </ul>
       <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)">
         <a class="btn btn-primary" href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Anrufen</a>
-        <a class="btn btn-outline" href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-outline" href="https://wa.me/436641515153?text=Hallo%20Autoservice%20Oleh%2C%20" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-outline" href="https://t.me/+436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg>Telegram</a>
+        <a class="btn btn-outline" href="viber://chat?number=%2B436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-vb"/></svg>Viber</a>
+        <a class="btn btn-outline" href="assets/autoservice-oleh.vcf" download="Autoservice-Oleh.vcf" title="Visitenkarte (vCard) fürs Handy"><svg aria-hidden="true" focusable="false"><use href="#i-save"/></svg>Kontakt speichern</a>
       </div>
     </div>
     <div class="map" id="karte">
@@ -474,8 +487,10 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 </footer>
 
 <nav class="callbar" aria-label="Schnellkontakt">
-  <a href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Anrufen</a>
-  <a href="https://wa.me/436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a href="tel:+436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Anrufen</span></a>
+  <a href="https://wa.me/436641515153?text=Hallo%20Autoservice%20Oleh%2C%20" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+  <a href="https://t.me/+436641515153" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg><span>Telegram</span></a>
+  <a href="viber://chat?number=%2B436641515153"><svg aria-hidden="true" focusable="false"><use href="#i-vb"/></svg><span>Viber</span></a>
 </nav>
 
 <script>
