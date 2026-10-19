@@ -231,20 +231,12 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 .clist a{text-decoration:none;font-weight:600;font-size:19px}
 .clist a:hover{color:var(--oleh-yellow)}
 .clist span{display:block;font-size:14px;color:var(--oleh-silver)}
-/* Map: two-click placeholder – Google is only contacted after "Karte laden" */
+/* Map: OpenStreetMap, shown right away – no request goes to Google (see datenschutz.html#karte) */
 .map{display:flex;border-radius:var(--radius-md);overflow:hidden;min-height:340px;border:1px solid var(--line-blue);background:var(--oleh-blue-light)}
 .map iframe{flex:1;width:100%;min-height:340px;border:0;display:block}
 /* browsers do not match :focus on an iframe whose content has focus, so the script sets .has-focus on the box */
 .map iframe:focus-visible{outline:none}
 .map.has-focus{outline:3px solid var(--oleh-yellow);outline-offset:3px}
-.map-ph{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-4);padding:var(--space-12) var(--space-6);text-align:center;background:repeating-linear-gradient(-45deg,var(--oleh-blue) 0 14px,var(--oleh-blue-light) 14px 28px)}
-.map-ph > svg{width:40px;height:40px;color:var(--oleh-yellow)}
-.map-addr{margin:0;font-weight:600;font-size:19px;line-height:1.35}
-.map-ph a:not(.btn){color:var(--link-dark)}
-.map-route{margin:0;font-size:15px}
-.map-consent{display:flex;flex-direction:column;align-items:center;gap:var(--space-4);margin-top:var(--space-2)}
-.map-consent[hidden]{display:none}
-.map-consent p{margin:0;max-width:34em;font-size:13px;color:var(--oleh-silver)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* Yellow contact band + footer */
@@ -456,16 +448,8 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
       </div>
     </div>
     <div class="map" id="karte">
-      <!-- Two-click solution: Google Maps is only loaded after the visitor clicks "Karte laden" (DSGVO / TKG 2021 § 165). -->
-      <div class="map-ph">
-        <svg aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>
-        <p class="map-addr">Kärntner Straße 105<br>8053 Graz</p>
-        <p class="map-route"><a href="https://maps.app.goo.gl/V1gn39FMLRvSxTvs8" target="_blank" rel="noopener">Маршрут у Google Maps</a></p>
-        <div class="map-consent" hidden>
-          <button type="button" class="btn btn-outline map-load" data-src="https://www.google.com/maps?q=K%C3%A4rntner+Stra%C3%9Fe+105,+8053+Graz&amp;output=embed">Завантажити карту</button>
-          <p>Під час завантаження карти дані (зокрема ваша IP-адреса) передаються Google. Докладніше в <a href="datenschutz.html#google-maps">політиці конфіденційності (нім.)</a>.</p>
-        </div>
-      </div>
+      <!-- OpenStreetMap, loaded with the page (lazy). No request goes to Google; see datenschutz.html#karte. TODO: the marker is approximate, replace it with the exact position of No. 105. -->
+      <iframe title="Карта (OpenStreetMap): Kärntner Straße 105, 8053 Graz" src="https://www.openstreetmap.org/export/embed.html?bbox=15.40880%2C47.04140%2C15.41980%2C47.04580&amp;layer=mapnik&amp;marker=47.043600%2C15.414300" loading="lazy" referrerpolicy="no-referrer"></iframe>
     </div>
   </div>
 </section>
@@ -495,37 +479,25 @@ h2{font-size:clamp(28px,4vw,36px);font-weight:800;text-transform:uppercase;lette
 </nav>
 
 <script>
-/* 1) Map: insert the Google Maps iframe only after a click (two-click solution). */
+/* 1) Map: browsers do not match :focus on an iframe whose content has focus, so the ring around the map
+   (.has-focus) is set here. Like :focus-visible it is for keyboard users only: it shows when focus enters
+   the map right after a key press, not after a mouse or touch click. */
 (function(){
-  var btn=document.querySelector('.map-load');
-  if(!btn) return;
-  var box=btn.closest('.map');
-  btn.closest('.map-consent').hidden=false;
-  /* The ring around the map (.has-focus) is for keyboard users only, like :focus-visible:
-     it is shown when focus enters the map right after a key press, not after a mouse or touch click. */
-  var lastKey=0;
+  var f=document.querySelector('.map iframe');
+  if(!f) return;
+  var box=f.closest('.map');
+  var lastKey=0, inMap=false;
   document.addEventListener('keydown',function(){lastKey=Date.now();},true);
   document.addEventListener('pointerdown',function(){lastKey=0;},true);
-  btn.addEventListener('click',function(){
-    var f=document.createElement('iframe');
-    f.title='Google Maps: Kärntner Straße 105, 8053 Graz';
-    f.setAttribute('referrerpolicy','no-referrer');
-    f.setAttribute('allowfullscreen','');
-    f.src=btn.getAttribute('data-src');
-    box.replaceChildren(f);
-    var inMap=false;
-    function sync(){
-      var now=document.activeElement===f;
-      if(now&&!inMap) box.classList.toggle('has-focus',Date.now()-lastKey<500);
-      if(!now) box.classList.remove('has-focus');
-      inMap=now;
-    }
-    window.addEventListener('blur',function(){setTimeout(sync,0);});
-    window.addEventListener('focus',sync);
-    document.addEventListener('focusin',sync);
-    f.focus();
-    setTimeout(sync,0);
-  });
+  function sync(){
+    var now=document.activeElement===f;
+    if(now&&!inMap) box.classList.toggle('has-focus',Date.now()-lastKey<500);
+    if(!now) box.classList.remove('has-focus');
+    inMap=now;
+  }
+  window.addEventListener('blur',function(){setTimeout(sync,0);});
+  window.addEventListener('focus',sync);
+  document.addEventListener('focusin',sync);
 })();
 /* 3) Jump links (tablets and phones): scroll a focused link fully into the row, and fade only the side that can still scroll. */
 (function(){

@@ -13,7 +13,7 @@ Domain: **autoserviceoleh.at** (registered at internex). Hosting: **Cloudflare P
 - `assets/fonts/` – self-hosted Poppins (German page) and Montserrat with Cyrillic (Ukrainian page), both OFL. No request goes to Google Fonts.
 - `assets/img/` – photos from the company Instagram @oleh_auto_graz. The page serves the WebP versions (`*-600.webp` and `motorraum-mpi.webp` for the gallery and „Über uns“, `werkstatt-hebebuehne-900.webp` for the hero) through `<picture>`; the `.jpg` files are the fallback for old browsers.
 
-Privacy: the page sets no cookies and loads no tracking. Google Maps is a two-click embed: the iframe is only inserted after the visitor clicks „Karte laden“ (with `referrerpolicy="no-referrer"`); the „Route in Google Maps“ links are plain links.
+Privacy: the page sets no cookies and loads no tracking. The map in the Kontakt section is an OpenStreetMap embed that shows right away (`loading="lazy"`, `referrerpolicy="no-referrer"`); no request goes to Google. The „Route in Google Maps“ links are plain links. The marker sits at 47.043600, 15.414300 – **approximate** (middle of Kärntner Straße), to be replaced with the exact position of No. 105 before going live; to move it, change `bbox` and `marker` in the iframe `src` in `index.html` and `uk.html`.
 
 Logo notes: "AUTOSERVICE" is Montserrat ExtraBold 800 converted to outlines; "Oleh" is the client's own brush lettering, vectorised from the original sign (it is not a font — always use the logo files). On white use the `-on-light` files; below 32 px use `favicon.svg` / the on-blue mark.
 
