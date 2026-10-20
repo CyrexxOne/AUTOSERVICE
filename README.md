@@ -5,6 +5,7 @@ Landing page (alpha) for **Autoservice Oleh**, Kärntner Straße 105, 8053 Graz.
 Domain: **autoserviceoleh.at** (registered at internex). Hosting: **Cloudflare Pages** (free plan), see [Hosting on Cloudflare Pages](#hosting-on-cloudflare-pages).
 
 - `index.html` – single-page site (German), no build step. Open it in a browser or serve the folder statically.
+- „Ohne Termin“ block (right after the yellow offer strip): oil change, tyre service and wheel alignment need no appointment, each card carries an orange stamp (inline SVG; ring text on `#stamp-ring`, rough ink from the `#stamp-ink` filter, colour `--stamp-orange`). All other services are by appointment; prices are given on request. The header menu shows from 1100 px; below that the jump links under the header take over.
 - `uk.html` – the same page in Ukrainian; the header has a DE/UA switch. It uses self-hosted Montserrat (Poppins has no Cyrillic). The legal pages stay German.
 - `impressum.html`, `datenschutz.html` – **drafts** of the Impressum and the Datenschutzerklärung (same look as the landing page, `noindex`, visible draft notice). Every missing fact is marked with a yellow „[bitte ergänzen: …]“ / „[bitte bestätigen: …]“ placeholder.
 - `assets/logo/` – vector logo (SVG) in stacked and horizontal lockups, each in on-blue, on-light, mono-white and mono-blue, plus transparent PNG exports (600/1200 px).
